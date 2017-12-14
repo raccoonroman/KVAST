@@ -1,0 +1,114 @@
+@media all and (max-width: 836px) {
+	.brand-new-item:first-child {
+		border-right: 1px solid #E5E5E5;
+	}
+}
+
+@media all and (max-width: 770px) {
+	.footer-copyright b {
+		display: none;
+	}
+}
+
+@media all and (max-width: 716px) {
+	label.right-part,
+	#additional-phone {
+		display: none;
+	}
+	#phone {
+		max-width: 100%;
+	}
+}
+
+@media all and (max-width: 698px) {
+	.advantages .advantage-items {
+		flex-direction: column;
+		padding: 20px 0;
+	}	
+	.advantage-items .advantage-item {
+		width: 100%;
+		align-self: center;
+	}
+	.advantage-items .border {
+		display: none;
+	}	
+	.advantage-item::before {
+		display: none;
+	}
+	.advantage-item h3 {
+		margin: 0;
+		margin-top: 10px;
+	}
+	.advantage-item p {
+		margin: 0;
+	}
+}
+
+@media all and (max-width: 635px) {
+	header {
+		padding-top: 10px;
+	}
+	.header-top nav a {
+		font-size: 15px;
+	}
+	.footer-top nav {
+		flex-direction: column;
+		flex-grow: 0;
+		text-align: right;
+	}
+}
+
+@media all and (max-width: 586px) {
+	.some-history img {
+		display: none;
+	}
+	.some-history dl {
+		margin-bottom: 0;
+	}
+}
+
+@media all and (max-width: 539px) {
+	.header-top nav {
+		display: none;
+	}
+	.mob-nav {
+		display: inline-block;
+	}
+	.press-about-us blockquote cite {
+		font-size: 20px;
+	}
+	.order .output-field {
+		margin-left: 160px;
+	}
+	.footer-bottom p {
+		display: none;
+	}
+}
+
+@media all and (max-width: 426px) {
+	.press-about-us blockquote cite {
+		order: 0;
+		padding-left: 0;
+		padding-right: 10px;
+	}
+	.press-about-us blockquote p {
+		margin-bottom: 0;
+	}
+} 
+
+@media all and (max-width: 421px) {
+	.feedback-form-group:nth-of-type(4) label {
+		width: 100%;
+	}
+}
+
+@media all and (max-width: 390px) {
+	.checkbox-subscription label {
+		font-size: 16px;
+		font-family: "CuprumRegular";
+		text-transform: none;
+	}
+	.btn:not([type="submit"]):not([type="reset"]) {
+		padding: 2px 10px 0 10px;
+	}
+}

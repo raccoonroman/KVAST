@@ -1,0 +1,808 @@
+body {
+	margin: 0;
+    padding: 0;
+    font-size: 17px;
+    line-height: 26px;
+    font-family: "CuprumRegular", "Arial", sans-serif;
+    color: #444;
+    background-color: white;
+}
+
+@font-face {
+	font-family: "CuprumRegular";
+	src: url("../fonts/CuprumRegular/CuprumRegular.eot");
+	src: url("../fonts/CuprumRegular/CuprumRegular.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/CuprumRegular/CuprumRegular.woff") format("woff"),
+	url("../fonts/CuprumRegular/CuprumRegular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "CuprumBold";
+	src: url("../fonts/CuprumBold/CuprumBold.eot");
+	src: url("../fonts/CuprumBold/CuprumBold.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/CuprumBold/CuprumBold.woff") format("woff"),
+	url("../fonts/CuprumBold/CuprumBold.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "CuprumItalic";
+	src: url("../fonts/CuprumItalic/CuprumItalic.eot");
+	src: url("../fonts/CuprumItalic/CuprumItalic.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/CuprumItalic/CuprumItalic.woff") format("woff"),
+	url("../fonts/CuprumItalic/CuprumItalic.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+.container { /*центровщик*/
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+header {
+	min-height: 300px;
+    padding-top: 50px;
+    background: url("../img/header-bg.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.header-top, 
+.footer-top {
+	display: flex;
+	align-items: center;
+}
+
+.header-logo {
+	flex-grow: 1;
+	margin-right: 10px;
+}
+
+.header-top nav {
+	flex-grow: 3;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+}
+
+.header-top nav::before { /*верхняя линия навигации*/
+	content: "";
+	position: absolute;
+	background-color: rgba(255, 203, 120, 0.2);
+	height: 1px;
+	top: -15px;
+	right: 0;
+	width: 100%;
+}
+
+.header-top nav::after { /*нижняя линия навигации*/
+	content: "";
+	position: absolute;
+	background-color: rgba(255, 203, 120, 0.2);
+	height: 1px;
+	bottom: -14px;
+	right: 0;
+	width: 100%;
+}
+
+.header-logo,
+.footer-logo { /*дублирование размеров */
+    width: 140px;
+    height: 76px;
+}
+
+nav a {
+	position: relative;
+	display: inline-block;
+	margin: 0 5px;
+	text-transform: uppercase;
+	color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "CuprumBold";
+}
+
+.header-top nav a::before, /*линии для анимации*/
+.header-top nav a::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 1px;
+    background-color: rgb(255, 203, 120);
+    opacity: 0.1;
+    transition: all 0.3s;
+}
+
+.header-top nav a::before {
+    top: -15px;
+    left: 20%;
+    transform: rotate(0deg);
+    transform-origin: 0 0;
+}
+
+.header-top nav a::after {
+    right: 20%;
+    bottom: -15px;
+    transform: rotate(0deg);
+    transform-origin: 100% 100%;
+}
+
+.header-top nav a:hover::before,
+.header-top nav a:hover::after {
+    opacity: 1;
+    background-color: white;
+    width: 25px;
+    height: 2px;
+}
+
+.header-top nav a:hover::before {
+	top: 13px;
+    left: -2px;
+    transform: rotate(90deg) translateX(-50%);
+}
+
+.header-top nav a:hover::after {
+	bottom: 14px;
+    right: -2px;
+    transform: rotate(90deg) translateX(50%);
+}
+/*выпадающее меню*/
+.mob-nav {
+	position: relative;
+	display: none;
+}
+
+.mob-nav:hover .drop-down-mob {
+	display: block;
+}
+
+.header-top .btn-mob-nav {
+	width: 130px;
+	cursor: pointer;
+	padding: 10px;
+	font: inherit;
+	font-size: 24px;
+	color: white;
+	background-color: rgba(255, 203, 120, 0.8);
+	border: none;
+}
+
+.btn-mob-nav:hover {
+	background-color: #834700;
+}
+
+.mob-nav .drop-down-mob {
+	display: none;
+	position: absolute;
+	top: 46px;
+	right: 0;
+}
+
+.drop-down-mob {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background: rgba(255, 203, 120, 0.8);
+}
+
+.drop-down-mob li a {
+	display: block;
+	width: 110px;
+	height: 30px;
+	padding: 4px 10px;
+	font-size: 20px;
+	color: white;
+	text-decoration: none;
+	text-align: right;
+}
+
+.drop-down-mob li a:hover {
+	background: #834700;
+}
+
+.promo {
+	margin: 10% 0;
+}
+
+.promo h1 {
+	margin: 10% 0;
+	padding-bottom: 10%;
+	font-family: "CuprumBold";
+    font-size: calc( (100vw - 320px)/(1366 - 320)*(80 - 20) + 32px);
+    line-height: calc( (100vw - 320px)/(1366 - 320)*(80 - 20) + 32px);
+	text-align: center;
+	color: #fff;
+	text-shadow: 2px 2px 8px #ff9900;
+}
+
+.section-title,
+.brand-new-item h3 { /*общие размеры для h2 + Вахтёр, Романтик*/
+	margin: 0;
+	margin-top: 10%;
+	margin-bottom: 10%;
+	font-family: "CuprumBold";
+	font-size: calc( (100vw - 320px)/(1366 - 320)*(50 - 20) + 28px);
+	line-height: calc( (100vw - 320px)/(1366 - 320)*(60 - 20) + 30px);
+	color: #000;
+	text-shadow: 2px 2px 5px #333333;
+}
+
+.brand-new-items { /*новинки*/
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.brand-new-item {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	margin-bottom: 80px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 400px;
+	box-sizing: border-box;
+	border-left: 1px solid #E5E5E5;
+}
+
+.brand-new-item:last-child {
+	border-right: 1px solid #E5E5E5;
+}
+
+.brand-new-item h3 {
+	margin: 0;
+}
+
+.aside-info {
+	position: absolute;
+	width: 170px;
+	top: 5px;
+	right: 0;
+}
+
+.aside-info .alc-kcal {
+	width: 170px;
+	font-family: "CuprumBold";
+	color: #000;
+	text-transform: uppercase;
+	border-bottom: 1px solid #E5E5E5;
+	padding-bottom: 10px;
+}
+
+.alc-kcal td {
+	width: 85px;
+}
+
+.aside-info .composition {
+	font-size: 16px;
+	line-height: 24px;
+	margin-right: 10px;
+}
+
+.item-figure {
+	margin: 0;
+}
+
+.item-buttons {
+	display: flex;
+	align-items: center;
+}
+
+.btn { /*общие стили для всех кнопок*/
+	display: inline-block;
+	padding: 10px 20px;
+	font: inherit;
+	font-family: "CuprumBold";
+    color: #fff;
+    background-color: #834700; 
+    text-transform: uppercase;
+    text-decoration: none;
+    word-wrap: break-word;
+    border: 2px solid #834700;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+	background-color: #935710;
+	border-color: #935710;
+	box-shadow: 1px 2px 3px #aaaaaa;
+}
+
+.item-buttons .btn {
+	margin-right: 5px;
+}
+
+.item-buttons .btn-info {
+	color: #834700;
+    background-color: #fff; 
+}
+
+.item-buttons .item-price {
+	margin-left: auto;
+}
+
+.advantages {
+	background-color: #FFCB78;
+}
+
+.advantages .container {
+	max-width: 1200px;
+}
+
+.advantages .advantage-items {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	margin: 0;
+	padding: 60px 0 80px 0;
+}
+.advantage-items .advantage-item {
+	position: relative;
+	width: 200px;
+	padding: 0 10px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+
+.advantage-items .border {
+	border-right: 1px solid #E7B66A;
+	height: 200px;
+}
+
+.advantage-item::before {
+	content: "";
+	position: absolute;
+	top: 20px;
+	left: 10px;
+	background-image: url("../img/sprite.png");
+    background-repeat: no-repeat;
+}
+
+.advantage-cook::before {
+	width: 50px;
+	height: 68px;
+	background-position: -47px 0;
+}
+
+.advantage-own::before {
+	width: 47px;
+	height: 65px;
+	background-position: -51px -68px;
+}
+.advantage-quality::before {
+	width: 63px;
+	height: 58px;
+	background-position: -35px -137px;
+}
+.advantage-item h3 {
+	margin-top: 100px;
+	color: #000;
+	text-transform: uppercase;
+}
+
+.advantage-item p {
+	margin: -15px 0;
+}
+
+.some-history dl {
+	margin-bottom: 80px;
+}
+
+.some-history dt,
+.some-history dd {
+	display: flex;
+	align-items: center;
+}
+
+.some-history dt {
+	flex-wrap: wrap;
+}
+
+.some-history dd {
+	margin: 20px 0 50px 0;
+}
+
+.some-history h3 {
+	margin: 0;
+	margin-right: auto;
+	color: #000;
+	text-transform: uppercase;
+}
+
+.some-history i {
+	margin-left: 10px;
+}
+
+.some-history p {
+	margin: 0;
+	margin-right: auto;
+	padding-right: 10px;
+	width: 500px;
+	order: -1;
+}
+
+.some-history dt a {
+	color: #814700;
+}
+
+.some-history dt a:hover {
+	color: #444;
+}
+
+.press-about-us {
+	background-color: #EDE5D8;
+	padding: 0 0 70px 0;
+	overflow: hidden; /*чтобы не выпал внешний отступ у заголовка*/
+	background-image: linear-gradient(to bottom, white 0%, #EDE5D8 15%, #EDE5D8 85%, white 100%);
+}
+
+.press-about-us .section-title{
+	margin-bottom: 30px;
+}
+
+.press-about-us blockquote {
+	position: relative;
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+blockquote::before {/*кавычки*/
+	position: absolute;
+	top: 50px;
+	left: -100px;
+	content: "\201d";
+	font-size: 120px;
+	font-family: "Arial", sans-serif;
+	font-weight: bold;
+	color: #D6CEC3;
+
+}
+
+.press-about-us blockquote p {
+	max-width: 700px;
+	margin-bottom: 40px;
+}
+
+.press-about-us blockquote cite {
+	order: 1;
+	padding: 10px 0 0 10px;
+	color: #000;
+	font-family: "CuprumBold";
+	font-style: normal;
+	font-size: 30px;
+    line-height: 38px;
+}
+blockquote .btn-more-info {
+	margin-right: auto;
+	background-color: transparent;
+	border-color: #A69F95;
+	color: #A69F95;
+}
+
+blockquote .btn-more-info:hover {
+	background-color: #fff;
+	border-color: #A69F95;
+}
+
+.range {
+	margin-bottom: 80px;
+}
+
+.price-list {
+	width: 100%;
+	border-collapse: collapse;
+	text-transform: uppercase;
+}
+
+.price-list tr {
+	border-bottom: 1px solid #E5E5E5;
+	height: 60px;
+}
+
+.price-list .column-1 {
+	text-align: left;
+	width: 48%;
+}
+
+.price-list .column-2,
+.price-list .column-3 {
+	text-align: center;
+	width: 10%;
+}
+
+.price-list .column-4 {
+	text-align: center;
+	width: 12%;
+}
+
+.price-list .column-5 {
+	width: 20%;
+	text-align: right;
+}
+
+.price-list th {
+	vertical-align: top;
+	height: 50px;
+	font-size: 12px;
+	color: #9A9A9A;
+	font-weight: normal;
+}
+
+.price-list tr sup {
+	margin-left: 20px;
+	padding: 2px 4px 1px 4px;
+	color: white;
+	background-color: black;
+	border-radius: 3px;
+	font-size: 9px;
+	letter-spacing: 1px;
+}
+
+
+.order {
+	background-color: #FFCB78;
+	padding: 5px 0 100px 0;
+}
+
+.order .order-tip {
+	max-width: 650px;
+	margin: 50px 0;
+}
+
+.order form {
+	color: #000;
+	text-transform: uppercase;
+	font-family: "CuprumBold";
+}
+
+.order .feedback-form-group,
+.order .checkbox-subscription,
+.order .form-btn {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 12px 0;
+}
+
+.order .feedback-form-group:last-of-type {
+	align-items: flex-start;
+}
+
+.order label {
+	min-width: 160px;
+	flex-shrink: 0;
+	cursor: pointer;
+}
+
+.order label.right-part {
+	margin-left: auto;
+	padding: 10px;
+	min-width: 100px;
+}
+
+
+.order input[type="text"],
+ .order input[type="tel"],
+ .order input[type="email"],
+ .order textarea {
+	min-width: 250px;
+	flex-grow: 1;
+	padding: 10px 15px;
+	border: none;
+	background-color: #E6B66C;
+	font-size: 16px;
+	outline: none;
+}
+
+.order input[type="text"]:focus,
+ .order input[type="tel"]:focus,
+ .order input[type="email"]:focus,
+ .order textarea:focus {
+ 	box-shadow: 0 0 4px 2px #834700;
+ }
+
+.order input::placeholder,
+.order textarea::placeholder {
+	color: #9A7A4B;
+	text-transform: uppercase;
+}
+
+.order label[class*="-part"] + input {/*фиксированная ширина "Ваш номер"*/
+	min-width: 170px;
+	max-width: 170px;
+}
+
+.order input[type="range"] {
+	flex-grow: 1;
+}
+
+.output-field {
+	margin-left: 50px;
+	padding: 6px 15px;
+	width: 87px;
+	background-color: #E6B66C;
+	text-align: right; /*фиксированная позиция единицы измерения при разном значении*/
+}
+
+.order input[type="range"] {
+	flex-grow: 1;
+}
+
+.order .checkbox-subscription,
+.order .form-btn {
+	justify-content: center;
+}
+
+.checkbox-subscription {
+	padding-top: 10px;
+	padding-left: 50px;
+}
+ 
+.checkbox-subscription label {
+	position: relative;
+}
+
+.checkbox-subscription label::before {
+	content: "";
+    position: absolute;
+    top: -3px;
+    left: -40px;
+    z-index: 1;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #834700;
+    background-color: #E6B66C;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+input[type="checkbox"]:checked ~ label::before {
+	width: 23px;
+    height: 11px;
+    border-color: #000;
+    border-top-style: none;
+    border-right-style: none;
+    transform: rotate(-45deg);
+    background-color: transparent;
+}
+
+.order input[type="submit"],
+.order input[type="reset"] {
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+
+.order input[type="submit"] {
+	margin: 0 10px 10px;
+}
+
+input[type="reset"] {
+	width: 184px;
+	background-image: url("../img/6.png");
+	background-repeat: no-repeat;
+	background-position: 11px 9px;
+	background-size: 26px 25px;
+}
+
+.page-footer {
+	background-color: #000;
+	padding: 50px 0;
+}
+
+.page-footer .container {
+	max-width: 1020px;
+}
+
+.footer-top {
+	flex-wrap: wrap;
+}
+
+.footer-logo {
+	flex-grow: 1;
+}
+
+.footer-top nav {
+	flex-grow: 5;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.page-footer nav a:hover {
+	text-decoration: underline;
+}
+
+.footer-bottom {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 40px;
+}
+
+.footer-social {
+	font-size: 0;
+}
+
+.social-btn,
+.iconhtml {
+	display: inline-block;
+	width: 50px;
+    height: 50px;
+    border: 10px solid #1B1B1B;
+    background-color: #1B1B1B;
+    background-image: url("../img/sprite.png");
+    background-repeat: no-repeat;
+}
+
+.social-btn-in {
+	background-position: 19px 21px;
+}
+
+.social-btn-in:hover {
+	background-color: #222222;
+	border-color: #222222;
+}
+
+.social-btn-fb {
+	border-color: #222222;
+	background-color: #222222;
+	background-position: 22px -20px;
+}
+
+.social-btn-fb:hover {
+	background-color: #1B1B1B;
+	border-color: #1B1B1B;
+}
+
+.social-btn-vk {
+	background-position: 16px -58px;
+}
+
+.social-btn-vk:hover {
+	background-color: #222222;
+	border-color: #222222;
+}
+
+.footer-bottom p {
+	width: 210px;
+	color: #979797;
+}
+
+.footer-copyright .iconhtml {
+	margin-top: 8px;
+	background-position: 12px -100px;
+}
+.footer-copyright b {
+	display: inline-block;
+	margin-top: 8px;
+	vertical-align: top;
+	margin-left: 20px;
+	color: #979797;
+}
+
+.footer-copyright b a {
+	margin: 0;
+	text-decoration: none;
+	color: #979797;
+}
+
+.footer-copyright b a:hover {
+	text-decoration: underline;
+	color: #fff;
+}
+
+{
+	background-color: red;
+}
+
+
